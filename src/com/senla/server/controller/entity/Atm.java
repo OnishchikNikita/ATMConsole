@@ -1,9 +1,9 @@
 package com.senla.server.controller.entity;
 
-public class ATM {
+public class Atm {
     private Long balance;
 
-    public ATM(Long balance) {
+    public Atm(Long balance) {
         this.balance = balance;
     }
 

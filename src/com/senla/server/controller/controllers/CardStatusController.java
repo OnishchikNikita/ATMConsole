@@ -4,10 +4,10 @@ import com.senla.server.controller.request.Request;
 import com.senla.server.controller.response.Response;
 import com.senla.server.controller.service.CardService;
 
-public class InfoController implements IController {
+public class CardStatusController implements IController {
     @Override
     public Response process(Request request) {
-        long info = new CardService().getInfo(request.getCardNumber());
-        return new Response(true);
+        Response response = new Response(new CardService().isAvailable(request.getCardNumber()));
+        return response;
     }
 }

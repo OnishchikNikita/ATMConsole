@@ -1,5 +1,6 @@
 package com.senla.server.database;
 
+import com.senla.server.controller.entity.Atm;
 import com.senla.server.controller.entity.Card;
 
 import java.io.FileWriter;
@@ -7,41 +8,44 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayDeque;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FileSystem {
-    private final Path path = Path.of("src\\com\\senla\\server\\database\\Data");
+    private final Path path = Path.of("src\\com\\senla\\server\\database\\File");
 
-
-    public void uploadFile() throws IOException {
+    public FileContent getFileContent() throws IOException {
         String stringContent = new String(Files.readAllBytes(path));
         String[] arrayContent = stringContent.split(" ");
         ArrayDeque<String> dequeContent = new ArrayDeque<>();
         for (String element : arrayContent) {
             dequeContent.addLast(element);
         }
-        atmBalance = new Balance(Long.parseLong(dequeContent.pop()));
+        Atm atm = new Atm(Long.parseLong(dequeContent.pop()));
+        Map<String, Card> cardMap = new HashMap<>();
         while (!dequeContent.isEmpty()) {
             String number = dequeContent.pop();
             String pin = dequeContent.pop();
-            boolean isAvailable = dequeContent.pop().equals("available");
+            boolean available = dequeContent.pop().equals("available");
             Long balance = Long.parseLong(dequeContent.pop());
-            Card card = new Card(number, pin, isAvailable, balance);
-            cards.put(card.getNumber(), card);
+            Card card = new Card(number, pin, available, balance);
+            cardMap.put(card.getNumber(), card);
         }
+        return new FileContent(cardMap, atm);
     }
 
-    public void updateFile(Balance atmBalance, Map<String, Card> cards) throws IOException {
+    public void updateFile(FileContent content) throws IOException {
         StringBuilder stringContent = new StringBuilder();
-        stringContent.append(atmBalance.getValue());
-        for (Map.Entry<String, Card> card : cards.entrySet()) {
-            stringContent.append(" ").append(card.getValue().toString());
+        stringContent.append(content.atm().getBalance());
+        for (Map.Entry<String, Card> card : content.cardMap().entrySet()) {
+            stringContent.append(" ").append(card.getValue().getNumber());
+            stringContent.append(" ").append(card.getValue().getPin());
+            stringContent.append(" ").append(card.getValue().isAvailable() ? "available" : "block");
+            stringContent.append(" ").append(card.getValue().getBalance());
         }
         java.io.File financeData = new java.io.File(path.toUri());
         FileWriter fileWriter = new FileWriter(financeData, false);
         fileWriter.write(stringContent.toString());
         fileWriter.close();
     }
-
-
 }

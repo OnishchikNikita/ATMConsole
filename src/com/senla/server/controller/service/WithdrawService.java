@@ -1,25 +1,22 @@
 package com.senla.server.controller.service;
 
-import com.senla.server.controller.request.WithdrawRequest;
-import com.senla.server.controller.dao.ATMDao;
+import com.senla.server.controller.dao.AtmDao;
 import com.senla.server.controller.dao.CardDao;
-import com.senla.server.controller.entity.ATM;
+import com.senla.server.controller.entity.Atm;
 import com.senla.server.controller.entity.Card;
-import com.senla.server.controller.exception.NotEnoughBalanceException;
-import com.senla.server.controller.response.Response;
+import com.senla.client.session.exception.NotEnoughBalanceException;
 
 public class WithdrawService {
-    public Response perform(WithdrawRequest request) throws NotEnoughBalanceException {
-        Card card = new CardDao().getCard(request.getCardNumber());
-        ATM atm = new ATMDao().getATM();
-        if (card.getBalance() < request.getAmount())
+    public void perform(String cardNumber, Long amount) throws NotEnoughBalanceException {
+        Card card = new CardDao().getCard(cardNumber);
+        Atm atm = new AtmDao().getAtm();
+        if (card.getBalance() < amount)
             throw new NotEnoughBalanceException("Not enough card balance!");
-        else if (atm.getBalance() < request.getAmount())
+        else if (atm.getBalance() < amount)
             throw new NotEnoughBalanceException("Not enough atm balance!");
         else {
-            card.setBalance(card.getBalance() - request.getAmount());
-            atm.setBalance(atm.getBalance() - request.getAmount());
+            card.setBalance(card.getBalance() - amount);
+            atm.setBalance(atm.getBalance() - amount);
         }
-        return new Response();
     }
 }

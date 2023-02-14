@@ -3,13 +3,13 @@ package com.senla.server.controller.entity;
 public class Card {
     private final String number;
     private final String pin;
-    private boolean isAvailable;
+    private boolean available;
     private Long balance;
 
-    public Card(String number, String pin, boolean availableStatus, Long balance) {
+    public Card(String number, String pin, boolean available, Long balance) {
         this.number = number;
         this.pin = pin;
-        this.isAvailable = availableStatus;
+        this.available = available;
         this.balance = balance;
     }
 
@@ -22,11 +22,11 @@ public class Card {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 
     public Long getBalance() {
