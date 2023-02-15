@@ -4,7 +4,7 @@ import com.senla.server.controller.dao.AtmDao;
 import com.senla.server.controller.dao.CardDao;
 import com.senla.server.controller.entity.Atm;
 import com.senla.server.controller.entity.Card;
-import com.senla.client.session.exception.NotEnoughBalanceException;
+import com.senla.exception.NotEnoughBalanceException;
 
 public class WithdrawService {
     public void perform(String cardNumber, Long amount) throws NotEnoughBalanceException {

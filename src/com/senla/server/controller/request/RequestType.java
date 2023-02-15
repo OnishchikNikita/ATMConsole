@@ -1,9 +1,7 @@
 package com.senla.server.controller.request;
 
 public enum RequestType {
-    VALIDATE_NUMBER,
-    VALIDATE_PIN,
-    CARD_STATUS,
+    AUTHORIZATION,
     BLOCK_CARD,
     INFO,
     DEPOSIT,

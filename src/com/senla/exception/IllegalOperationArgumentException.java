@@ -1,4 +1,4 @@
-package com.senla.client.session.exception;
+package com.senla.exception;
 
 public class IllegalOperationArgumentException extends Exception {
     public IllegalOperationArgumentException(String message) {

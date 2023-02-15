@@ -1,4 +1,4 @@
-package com.senla.client.session.exception;
+package com.senla.exception;
 
 public class NotAvailableCardException extends Exception {
     public NotAvailableCardException(String message) {

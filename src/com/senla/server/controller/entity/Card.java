@@ -13,6 +13,11 @@ public class Card {
         this.balance = balance;
     }
 
+    public Card(String number, String pin) {
+        this.number = number;
+        this.pin = pin;
+    }
+
     public String getNumber() {
         return number;
     }

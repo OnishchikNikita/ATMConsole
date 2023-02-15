@@ -1,4 +1,4 @@
-package com.senla.client.session.exception;
+package com.senla.exception;
 
 public class InvalidNumberException extends Exception {
     public InvalidNumberException(String message) {

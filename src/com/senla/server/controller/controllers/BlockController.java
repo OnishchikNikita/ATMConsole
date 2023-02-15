@@ -4,10 +4,9 @@ import com.senla.server.controller.request.Request;
 import com.senla.server.controller.response.Response;
 import com.senla.server.controller.service.CardService;
 
-public class BlockCardController implements IController {
-    @Override
-    public Response process(Request request) {
+public class BlockController {
+    public Response execute(Request request) {
         new CardService().block(request.getCardNumber());
-        return new Response(true);
+        return new Response("Your card was blocked.");
     }
 }
