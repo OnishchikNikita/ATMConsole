@@ -1,4 +1,4 @@
-package com.senla.server.controller.request;
+package com.senla.server.model.request;
 
 public enum RequestType {
     AUTHORIZATION,

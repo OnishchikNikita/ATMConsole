@@ -1,6 +1,6 @@
-package com.senla.server.controller.service;
+package com.senla.server.service;
 
-import com.senla.server.controller.dao.CardDao;
+import com.senla.server.dao.CardDao;
 
 public class CardService {
     public void block(String number) {

@@ -1,6 +1,6 @@
-package com.senla.server.controller.dao;
+package com.senla.server.dao;
 
-import com.senla.server.controller.entity.Card;
+import com.senla.server.entity.Card;
 import com.senla.server.database.Database;
 
 import java.util.Map;

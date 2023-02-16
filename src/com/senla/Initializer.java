@@ -2,7 +2,7 @@ package com.senla;
 
 import com.senla.client.console.ConsoleManager;
 import com.senla.client.session.Session;
-import com.senla.server.controller.controllers.Controller;
+import com.senla.server.controller.Controller;
 import com.senla.server.database.Database;
 import com.senla.server.database.FileSystem;
 

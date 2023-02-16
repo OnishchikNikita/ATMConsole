@@ -1,10 +1,11 @@
 package com.senla.client.session.operation;
 
-import com.senla.server.controller.request.Request;
-import com.senla.server.controller.request.RequestType;
+import com.senla.client.console.ConsoleManager;
+import com.senla.server.model.request.Request;
+import com.senla.server.model.request.RequestType;
 
-public class InfoOperation {
-    public Request execute(String activeCardNumber) {
+public class InfoOperation implements Operational {
+    public Request execute(String activeCardNumber, ConsoleManager consoleManager) {
         return new Request(RequestType.INFO, activeCardNumber);
     }
 }

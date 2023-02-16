@@ -1,6 +1,6 @@
-package com.senla.server.controller.dao;
+package com.senla.server.dao;
 
-import com.senla.server.controller.entity.Atm;
+import com.senla.server.entity.Atm;
 import com.senla.server.database.Database;
 
 public class AtmDao {

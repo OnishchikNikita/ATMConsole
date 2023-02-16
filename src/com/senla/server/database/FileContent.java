@@ -1,7 +1,7 @@
 package com.senla.server.database;
 
-import com.senla.server.controller.entity.Atm;
-import com.senla.server.controller.entity.Card;
+import com.senla.server.entity.Atm;
+import com.senla.server.entity.Card;
 
 import java.util.Map;
 

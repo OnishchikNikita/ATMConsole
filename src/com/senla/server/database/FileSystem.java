@@ -1,8 +1,9 @@
 package com.senla.server.database;
 
-import com.senla.server.controller.entity.Atm;
-import com.senla.server.controller.entity.Card;
+import com.senla.server.entity.Atm;
+import com.senla.server.entity.Card;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,8 +44,8 @@ public class FileSystem {
             stringContent.append(" ").append(card.getValue().isAvailable() ? "available" : "block");
             stringContent.append(" ").append(card.getValue().getBalance());
         }
-        java.io.File financeData = new java.io.File(path.toUri());
-        FileWriter fileWriter = new FileWriter(financeData, false);
+        File file = new File(path.toUri());
+        FileWriter fileWriter = new FileWriter(file, false);
         fileWriter.write(stringContent.toString());
         fileWriter.close();
     }

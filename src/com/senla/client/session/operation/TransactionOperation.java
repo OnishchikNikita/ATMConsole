@@ -1,8 +1,8 @@
 package com.senla.client.session.operation;
 
 import com.senla.client.console.ConsoleManager;
-import com.senla.server.controller.request.RequestType;
-import com.senla.server.controller.request.TransactionRequest;
+import com.senla.server.model.request.RequestType;
+import com.senla.server.model.request.TransactionRequest;
 
 import java.io.IOException;
 

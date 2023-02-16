@@ -1,4 +1,4 @@
-package com.senla.server.controller.request;
+package com.senla.server.model.request;
 
 public class TransactionRequest extends Request {
     private final Long amount;
@@ -11,6 +11,4 @@ public class TransactionRequest extends Request {
     public Long getAmount() {
         return amount;
     }
-
-
 }

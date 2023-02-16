@@ -1,9 +1,9 @@
-package com.senla.server.controller.service;
+package com.senla.server.service;
 
-import com.senla.server.controller.dao.AtmDao;
-import com.senla.server.controller.dao.CardDao;
-import com.senla.server.controller.entity.Atm;
-import com.senla.server.controller.entity.Card;
+import com.senla.server.dao.AtmDao;
+import com.senla.server.dao.CardDao;
+import com.senla.server.entity.Atm;
+import com.senla.server.entity.Card;
 import com.senla.exception.IllegalAmountException;
 
 public class DepositService {

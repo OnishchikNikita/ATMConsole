@@ -1,4 +1,4 @@
-package com.senla.server.controller.entity;
+package com.senla.server.entity;
 
 public class Atm {
     private Long balance;

@@ -3,8 +3,8 @@ package com.senla.client.session;
 import com.senla.client.console.ConsoleManager;
 import com.senla.exception.InvalidNumberException;
 import com.senla.exception.InvalidPinException;
-import com.senla.server.controller.request.*;
-import com.senla.server.controller.controllers.Controller;
+import com.senla.server.model.request.*;
+import com.senla.server.controller.Controller;
 import com.senla.exception.NotAvailableCardException;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class Authorization {
                 consoleManager.getPrinter().printMessage(exception.getMessage());
                 attempts--;
                 if (attempts == 0) {
-                    controller.blockCard(new Request(RequestType.BLOCK_CARD, number));
+                    controller.execute(new BlockCardRequest(RequestType.BLOCK_CARD, number));
                 }
             }
         }

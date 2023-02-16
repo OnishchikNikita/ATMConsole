@@ -1,10 +1,10 @@
-package com.senla.server.controller.service;
+package com.senla.server.service;
 
 import com.senla.exception.InvalidNumberException;
 import com.senla.exception.InvalidPinException;
 import com.senla.exception.NotAvailableCardException;
-import com.senla.server.controller.dao.CardDao;
-import com.senla.server.controller.entity.Card;
+import com.senla.server.dao.CardDao;
+import com.senla.server.entity.Card;
 
 public class AuthorizationService {
     public void run(String number, String pin)

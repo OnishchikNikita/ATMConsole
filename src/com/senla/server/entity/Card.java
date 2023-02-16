@@ -1,4 +1,4 @@
-package com.senla.server.controller.entity;
+package com.senla.server.entity;
 
 public class Card {
     private final String number;
@@ -11,11 +11,6 @@ public class Card {
         this.pin = pin;
         this.available = available;
         this.balance = balance;
-    }
-
-    public Card(String number, String pin) {
-        this.number = number;
-        this.pin = pin;
     }
 
     public String getNumber() {
