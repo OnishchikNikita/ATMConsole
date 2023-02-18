@@ -14,7 +14,7 @@ public enum Operation {
             case 2 -> Operation.DEPOSIT;
             case 3 -> Operation.WITHDRAW;
             case 4 -> Operation.EXIT;
-            default -> throw new IllegalOperationArgumentException("Unexpected operation argument.");
+            default -> throw new IllegalOperationArgumentException("Illegal operation argument.");
         };
     }
 }

@@ -1,5 +1,8 @@
 package com.senla.client.console;
 
+import com.senla.exception.IllegalAmountException;
+import com.senla.exception.IllegalOperationArgumentException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,11 +14,19 @@ public class ConsoleReader {
         return reader.readLine();
     }
 
-    public long readLong() throws IOException, NumberFormatException {
-        return Long.parseLong(reader.readLine());
+    public long readAmount() throws IOException, IllegalAmountException {
+        try {
+            return Long.parseLong(reader.readLine());
+        } catch (NumberFormatException exception) {
+            throw new IllegalAmountException("Illegal amount.");
+        }
     }
 
-    public byte readByte() throws IOException, NumberFormatException {
-        return Byte.parseByte(reader.readLine());
+    public byte readOperationArgument() throws IOException, IllegalOperationArgumentException {
+        try {
+            return Byte.parseByte(reader.readLine());
+        } catch (NumberFormatException exception) {
+            throw new IllegalOperationArgumentException("Illegal operation argument.");
+        }
     }
 }

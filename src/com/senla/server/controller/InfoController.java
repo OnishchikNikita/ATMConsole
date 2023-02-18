@@ -8,7 +8,7 @@ import com.senla.server.service.CardService;
 public class InfoController implements IController {
     public Response execute(Request request) {
         InfoRequest infoRequest = (InfoRequest) request;
-        long info = new CardService().getInfo(request.getCardNumber());
-        return new Response("Your card balance is " + info + "$");
+        long info = new CardService().getInfo(infoRequest.getCardNumber());
+        return new Response("Your balance: " + info + "$");
     }
 }

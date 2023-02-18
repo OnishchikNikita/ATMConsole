@@ -16,6 +16,10 @@ public class Database {
         return instance;
     }
 
+    public FileContent getContent() {
+        return content;
+    }
+
     public void setContent(FileContent content) {
         this.content = content;
     }
